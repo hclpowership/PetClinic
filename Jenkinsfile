@@ -1,19 +1,8 @@
-def label = "mypod-${UUID.randomUUID().toString()}"
-podTemplate(label: label) {
-node(label) {
+node {
   stage ('cloning the repository'){
       git 'https://github.com/hclpowership/PetClinic.git'
   }
 	
-  //stage('SonarQube analysis') {
-    // requires SonarQube Scanner 2.8+
-    //def scannerHome = tool 'sonar-new';
-    //withSonarQubeEnv('My SonarQube Server') {
-     // sh "${scannerHome}/bin/sonar-scanner"
-	 
-    //}
-  //}
-
   stage ('Build') {
       withMaven(jdk: 'JDK_for-agent', maven: 'MVN_Local') {
       sh "echo JAVA_HOME=$JAVA_HOME"
