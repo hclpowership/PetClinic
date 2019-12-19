@@ -4,8 +4,8 @@ node {
   }
 	
   stage ('Build') {
-      withMaven(jdk: 'JDK_for-agent', maven: 'MVN_Local') {
-      sh "echo JAVA_HOME=$JAVA_HOME"
+      withMaven(jdk: 'JDK_local', maven: 'MVN_Local') {
+     
       sh 'mvn clean package'
 	      
     }
