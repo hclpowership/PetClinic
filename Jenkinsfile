@@ -33,32 +33,8 @@ stage('Publish artificats to UrbanCode Deploy'){
             ]
         ]
     ])
-	step([$class: 'UCDeployPublisher',
-        	siteName: 'ucd-server',
-        	deploy: [
-            	$class: 'com.urbancode.jenkins.plugins.ucdeploy.DeployHelper$DeployBlock',
-            	deployApp: 'PetClinic',
-            	deployEnv: 'Dev',
-            	deployProc: 'Deploy-PetClinic',
-            	createProcess: [
-                	$class: 'com.urbancode.jenkins.plugins.ucdeploy.ProcessHelper$CreateProcessBlock',
-                	processComponent: 'Deploy'
-            	],
-            	deployVersions: 'PetClinic-cmp:Ver.${BUILD_NUMBER}',
-		//deployVersions: 'SNAPSHOT=Base Configuration',
-            	deployOnlyChanged: false
-        ]
-    ])
-} 
 	
-	
-	}
-	
-	
-	echo "(*****)"
-	  echo "${UUID}"
-	
-	  echo "Demo1234 ${PetClinicComponent_VersionId}"
+		  echo "Demo1234 ${PetClinicComponent_VersionId}"
 	  def newComponentVersionId = "${PetClinicComponent_VersionId}"
 	  step($class: 'UploadBuild', tenantId: "5ade13625558f2c6688d15ce", revision: "${GIT_COMMIT}", appName: "PetClinic", requestor: "admin", id: "${newComponentVersionId}" )
 	  echo "Demo123 ${newComponentVersionId}"
@@ -74,4 +50,7 @@ stage('Publish artificats to UrbanCode Deploy'){
 			 deployReqProps: '', 
 			 deployVersions: "PetClinicComponent:1.${BUILD_NUMBER}"], 
 		siteName: 'ucd-server'])
+}
+
+
 }
