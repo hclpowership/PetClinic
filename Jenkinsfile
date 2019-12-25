@@ -33,7 +33,7 @@ stage('Publish artificats to UrbanCode Deploy'){
             ]
         ]
     ])
-	
+	/*
 		  echo "Demo1234 ${PetClinic-cmp_VersionId}"
 	  def newComponentVersionId = "${PetClinic-cmp_VersionId}"
 	  step($class: 'UploadBuild', tenantId: "5ade13625558f2c6688d15ce", revision: "${GIT_COMMIT}", appName: "PetClinic", requestor: "admin", id: "${newComponentVersionId}" )
@@ -50,6 +50,8 @@ stage('Publish artificats to UrbanCode Deploy'){
 			 deployReqProps: '', 
 			 deployVersions: "PetClinic-cmp:1.${BUILD_NUMBER}"], 
 		siteName: 'ucd-server'])
+		
+		*/
 }
 
 
