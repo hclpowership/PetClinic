@@ -1,6 +1,10 @@
 node {
+	currentBuild.displayName = "1.${BUILD_NUMBER}"
+	def GIT_COMMIT
   stage ('cloning the repository'){
-      git 'https://github.com/hclpowership/PetClinic.git'
+     def scm =  git 'https://github.com/hclpowership/PetClinic'
+	    GIT_COMMIT = sh(returnStdout: true, script: "git rev-parse HEAD").trim()
+	  echo "AAAA ${GIT_COMMIT}"
   }
 	
   stage ('Build') {
