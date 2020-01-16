@@ -28,7 +28,7 @@ stage('Publish artificats to UrbanCode Deploy'){
             ],
             delivery: [
                 $class: 'com.urbancode.jenkins.plugins.ucdeploy.DeliveryHelper$Push',
-                pushVersion: 'Ver.${BUILD_NUMBER}',
+                pushVersion: '1.${BUILD_NUMBER}',
                 baseDir: '/var/jenkins_home/workspace/${JOB_NAME}/target',
                 fileIncludePatterns: '*.war',
                 fileExcludePatterns: '',
