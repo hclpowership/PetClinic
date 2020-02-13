@@ -38,7 +38,7 @@ stage('Publish artificats to UrbanCode Deploy'){
         ]
     ])
 	
-		  echo "Demo1234 ${PetClinic_cmp_VersionId}"
+		 // echo "Demo1234 ${PetClinic_cmp_VersionId}"
 	  def newComponentVersionId = "${PetClinicComponent_VersionId}"
 	  step($class: 'UploadBuild', tenantId: "5ade13625558f2c6688d15ce", revision: "${GIT_COMMIT}", appName: "PetClinic", requestor: "admin", id: "${newComponentVersionId}" )
 	  echo "Demo123 ${newComponentVersionId}"
